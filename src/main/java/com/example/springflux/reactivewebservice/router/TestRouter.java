@@ -13,6 +13,8 @@ public class TestRouter {
 
     @Bean
     public RouterFunction<ServerResponse> itemRoute(TestHandler handler) {
-        return route(GET("/item"), handler::getItem);
+        return route(GET("/item"), handler::getItem)
+                .andRoute(GET("/websockettest"), handler::websocketTest);
     }
+
 }
